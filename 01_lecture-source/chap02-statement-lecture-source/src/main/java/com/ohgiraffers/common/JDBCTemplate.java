@@ -2,9 +2,7 @@ package com.ohgiraffers.common;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Properties;
 
 public class JDBCTemplate {
@@ -47,6 +45,34 @@ public class JDBCTemplate {
         try {
             if (con != null & !con.isClosed()) {
                 con.close();
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public static void close(Statement stmt) {
+
+        // 비트연산자 => 좌항과 우항을 모두 비교
+        try {
+            if (stmt != null & !stmt.isClosed()) {
+                stmt.close();
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public static void close(ResultSet rset) {
+
+        // 비트연산자 => 좌항과 우항을 모두 비교
+        try {
+            if (rset != null & !rset.isClosed()) {
+                rset.close();
             }
 
         } catch (SQLException e) {
