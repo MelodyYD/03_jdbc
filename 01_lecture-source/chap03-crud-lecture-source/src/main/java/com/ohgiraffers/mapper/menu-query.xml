@@ -7,4 +7,10 @@
         VALUES
         (?, ?, ?, ?)
     </entry>
+    <entry key="updateMenu">
+        UPDATE TBL_MENU
+           SET MENU_NAME = ?
+             , MENU_PRICE = ?
+         WHERE MENU_CODE = ?
+    </entry>
 </properties>
